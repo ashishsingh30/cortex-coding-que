@@ -50,10 +50,10 @@ public class CustomerService {
         for (Customer sfCustomer : salesforceCustomers) {
             Optional<Customer> dbCustomer = customerRepository.findById(sfCustomer.getId());
             if (dbCustomer.isPresent()) {
-                // Update local database if customer exists
+                
                 updateCustomer(sfCustomer.getId(), sfCustomer);
             } else {
-                // Create new customer in local database if not exists
+               
                 createCustomer(sfCustomer);
             }
             
